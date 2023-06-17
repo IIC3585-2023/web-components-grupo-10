@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+  <script src="simple-component.js" type="module"></script>
+  <script src="complex-component.js" type="module"></script>
+  <style>
+    html * {
+      font-family: 'Roboto';
+    }
+
+    i {
+      font-size: 12px;
+    }
+
+    #simple-form {
+      display: flex;
+      flex-direction: column;
+      width: 300px;
+    }
+
+    #product-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    discount-element {
+      margin: 10px;
+      margin-bottom: 20px;
+    }
+  </style> 
+</head>
+<body> 
+  <form id="simple-form">
+    <label>Nombre Producto</label> 
+    <input type="text" id="productName" name="productName" placeholder="Producto ABC" required></input>
+    <label>Precio Original</label> 
+    <input type="number" id="originalPrice" name="originalPrice" placeholder="7990" min="0" required></input>
+    <label>Descuento % <i>(opcional)</i></label> 
+    <input type="number" id="discount" name="discount" placeholder="25" min="0" max="100"></input>
+    <label>Imagen <i>(opcional)</i></label> 
+    <input type="text" id="imageUrl" name="imageUrl" placeholder="www.url.com/image.png"></input>
+    <label>Rating <i>(opcional)</i></label> 
+    <input type="number" id="rating" name="rating" placeholder="3" min="0" max="5"></input>
+    <br />
+    <button type="submit">Crear Componente</button>
+  </form>
+  <br />
+  <div id="product-container">
+    <discount-element discount="25" originalPrice="2000" rating="4">
+      Producto ABC
+    </discount-element>
+  </div>
+  <script>
+    document.getElementById('simple-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const productName = document.getElementById('productName').value;
+      const originalPrice = document.getElementById('originalPrice').value;
+      const discount = document.getElementById('discount').value;
+      const imageUrl = document.getElementById('imageUrl').value;
+      const rating = document.getElementById('rating').value;
+      const discountElement = document.createElement('discount-element');
+      discountElement.setAttribute('discount', discount);
+      discountElement.setAttribute('originalPrice', originalPrice);
+      if (imageUrl !== ''){
+        discountElement.setAttribute('imageUrl', imageUrl);
+      }
+      discountElement.setAttribute('rating', rating);
+      discountElement.innerHTML = productName;
+      document.getElementById('product-container').appendChild(document.createElement('br'));
+      document.getElementById('product-container').appendChild(discountElement);
+    })
+  </script>
+</body>
+</html>
