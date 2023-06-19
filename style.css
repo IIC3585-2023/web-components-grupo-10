@@ -1,0 +1,64 @@
+html * {
+    font-family: 'roboto';
+}
+
+i {
+    font-size: 12px;
+}
+
+#simple-form {
+    display: flex;
+    flex-direction: column;
+    width:300px;
+}
+
+#product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+discount-element {
+    margin: 10px;
+    margin-bottom: 20px;
+}
+
+details {
+    margin-left: 22px;
+}
+
+div {
+    margin-left: 22px;
+}
+
+nav {
+    margin-bottom: 20px;
+    background-color: rgb(39, 206, 161);
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    color: #333;
+    padding: 8px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background-color: rgba(16, 160, 122, 0.797);
+}
+
+.trees {
+    max-width: 500px;
+}
+
+table {
+    background-color: rgba(16, 160, 122, 0.797);
+}
+
+td {
+    background-color: rgba(193, 255, 238, 0.797);
+}

@@ -2,7 +2,7 @@ import { LitElement, html, css } from 'https://cdn.skypack.dev/lit';
 
 class RatingStars extends LitElement {
   static styles = css`
-    :host {
+    * {
       display: inline-block;
     }
 
@@ -98,7 +98,7 @@ class RatingStars extends LitElement {
 
 class DiscountElement extends LitElement {
   static styles = css`
-    :host {
+    * {
       font-weight: bold;
       font-family: Roboto;
     }
